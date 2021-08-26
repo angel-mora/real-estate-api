@@ -1,25 +1,85 @@
-# README
+# Real Estate API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> An API to consume Real Estate data
 
-Things you may want to cover:
+![screenshot](./app_screenshot.png)
 
-* Ruby version
+Additional description about the project and its features.
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby 3, Rails 6
+- Rspec, Faker, FactoryBot, Shoulda Matchers and Capybara
 
-* Database creation
+## Getting Started
 
-* Database initialization
+To get a local copy up and running follow these simple example steps.
 
-* How to run the test suite
+### Prerequisites
 
-* Services (job queues, cache servers, search engines, etc.)
+Install Postgres, Ruby (rbenv recommended) and Rails in the local system.
 
-* Deployment instructions
+### Setup
 
-* ...
-# real-estate-api
+```bash
+git clone git@github.com:angel-mora/real-estate-api.git
+cd real-estate-api
+bundle install
+rails db:create db:migrate db:seed
+rails s
+```
+
+### Usage
+
+Go to the appropiate route that matches your need.
+
+### Run tests
+
+```bash
+rspec
+```
+
+### Deployment
+
+Create a Heroku account.
+
+Set your Heroku remote.
+
+Now you should move to ```main``` branch.
+
+Then simply add, commit and:
+
+```bash
+git push heroku main
+```
+
+After this, you still need to migrate the database, so run:
+
+```bash
+herokun run rails db:migrate
+```
+
+## Author
+
+👤 **Angel Mora**
+
+- GitHub: [@angel-mora](https://github.com/angel-mora)
+- LinkedIn: [angelmoradev](https://linkedin.com/in/angelmoradev)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Thank you for reviewing this project!
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
