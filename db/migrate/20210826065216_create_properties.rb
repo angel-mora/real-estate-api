@@ -3,7 +3,7 @@ class CreateProperties < ActiveRecord::Migration[6.1]
     create_table :properties do |t|
       t.string :name
       # do I ever need to use text instead of string?
-      t.string :type # options: house, department, land, commercial_ground
+      t.string :type_of_property # options: house, department, land, commercial_ground
       t.text :street
       t.string :external_number
       t.string :internal_number

@@ -17,16 +17,16 @@ ActiveRecord::Schema.define(version: 2021_08_26_065216) do
 
   create_table "properties", force: :cascade do |t|
     t.string "name"
-    t.string "type"
-    t.string "street"
+    t.string "type_of_property"
+    t.text "street"
     t.string "external_number"
     t.string "internal_number"
     t.string "neighborhood"
     t.string "city"
     t.string "country"
     t.integer "rooms"
-    t.integer "bathrooms"
-    t.string "comments"
+    t.decimal "bathrooms"
+    t.text "comments"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

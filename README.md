@@ -33,6 +33,12 @@ rails s
 
 Go to the appropiate route that matches your need.
 
+You can test it with Command Line using curl.
+
+```bash
+curl http://localhost:3000/api/v1/properties/1
+```
+
 ### Run tests
 
 ```bash

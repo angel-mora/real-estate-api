@@ -1,6 +1,6 @@
 class Property < ApplicationRecord
   validates :name,
-            :type,
+            :type_of_property,
             :street,
             :external_number,
             :neighborhood,
@@ -18,7 +18,7 @@ class Property < ApplicationRecord
 
   validates :city,
             length: { minimum: 1, maximum: 64 }
-  validates :type,
+  validates :type_of_property,
             inclusion: { in: %w[house department land commercial_ground] }
 
   validates :internal_number,
@@ -39,10 +39,10 @@ class Property < ApplicationRecord
             inclusion: { in: 0..1000 }, if: :land_or_commercial_ground?
 
   def department_or_commercial_ground?
-    type == 'department' || 'commercial_ground'
+    type_of_property == 'department' || 'commercial_ground'
   end
 
   def land_or_commercial_ground?
-    type == 'land' || 'commercial_ground'
+    type_of_property == 'land' || 'commercial_ground'
   end
 end
