@@ -5,23 +5,16 @@ RSpec.describe Property, type: :model do
   context 'basic validation' do
     describe 'of content present' do
       subject { build(:random_property) }
-      it { should validate_presence_of(:name).with_message('Required field!') }
-      it { should validate_presence_of(:type).with_message('Required field!') }
-      it { should validate_presence_of(:street).with_message('Required field!') }
-      it { should validate_presence_of(:external_number).with_message('Required field!') }
-      it { should validate_presence_of(:neighborhood).with_message('Required field!') }
-      it { should validate_presence_of(:city).with_message('Required field!') }
-      it { should validate_presence_of(:country).with_message('Required field!') }
-      it { should validate_presence_of(:rooms).with_message('Required field!') }
-      it { should validate_presence_of(:bathrooms).with_message('Required field!') }
-      it { should validate_presence_of(:comments).with_message('Required field!') }
+      %w[name type street external_number neighborhood city country rooms bathrooms comments].each do |category|
+        it { should validate_presence_of(category.to_sym).with_message('Required field!') }
+      end
     end
 
     describe 'of length adequate' do
       subject { build(:random_property) }
-      it { should validate_length_of(:name).is_at_least(1).is_at_most(128) }
-      it { should validate_length_of(:street).is_at_least(1).is_at_most(128) }
-      it { should validate_length_of(:neighborhood).is_at_least(1).is_at_most(128) }
+      %w[name street neighborhood].each do |category|
+        it { should validate_length_of(category.to_sym).is_at_least(1).is_at_most(128) }
+      end
       it { should validate_length_of(:city).is_at_least(1).is_at_most(64) }
       it { should validate_length_of(:external_number).is_at_least(1).is_at_most(12) }
     end
