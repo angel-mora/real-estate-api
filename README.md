@@ -41,9 +41,13 @@ curl http://localhost:3000/api/v1/properties/1
 
 ### Run tests
 
+To find the variety of specs required for this Database Business Requirements, just run in your console:
+
 ```bash
 rspec
 ```
+
+You will find them passing with green color as indicator. This same feature is also setup in GitHub Actions, running against each Pull Request.
 
 ### Deployment
 
