@@ -16,5 +16,6 @@ RSpec.describe Property, type: :model do
     it { should validate_presence_of(:bathrooms) }
     it { should validate_presence_of(:comments) }
 
+    it { should validate_length_of(:name, minimum: 1, maximum: 128) }
   end
 end
