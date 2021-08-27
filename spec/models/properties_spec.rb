@@ -5,7 +5,8 @@ RSpec.describe Property, type: :model do
   context 'basic validation' do
     describe 'of content present' do
       subject { build(:random_property) }
-      %w[name type_of_property street external_number neighborhood city country rooms bathrooms comments].each do |category|
+      %w[name type_of_property street external_number neighborhood city country rooms bathrooms
+         comments].each do |category|
         it { should validate_presence_of(category.to_sym).with_message('Required field!') }
       end
     end

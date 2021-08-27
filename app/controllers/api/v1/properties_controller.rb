@@ -1,5 +1,4 @@
 class Api::V1::PropertiesController < ApplicationController
-
   # GET /properties/
   def index
     render json: Property.all.select(
