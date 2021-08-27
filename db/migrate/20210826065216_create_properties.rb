@@ -11,7 +11,7 @@ class CreateProperties < ActiveRecord::Migration[6.1]
       t.string :city
       t.string :country # 2 chars ISO 3166-Alpha2
       t.integer :rooms
-      t.integer :bathrooms
+      t.decimal :bathrooms
       t.text :comments
 
       t.timestamps

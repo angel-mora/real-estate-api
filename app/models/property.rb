@@ -29,7 +29,21 @@ class Property < ApplicationRecord
             format: { with: /^[a-zA-Z0-9- ]+$/, multiline: true, message: 'Only alphanumerics, blank space and dash' },
             length: { minimum: 1, maximum: 12 }
 
+  validates :country,
+            inclusion: {
+              in: ISO3166::Country.all.map(&:alpha2),
+              message: 'Must be ISO-3166 compliant (only 2 characters'
+            }
+
+  validates :bathrooms,
+            inclusion: { in: 0..1000 }, if: :land_or_commercial_ground?
+
   def department_or_commercial_ground?
-    type == 'deparment' || 'commercial_ground'
+    type == 'department' || 'commercial_ground'
   end
+
+  def land_or_commercial_ground?
+    type == 'land' || 'commercial_ground'
+  end
+
 end
