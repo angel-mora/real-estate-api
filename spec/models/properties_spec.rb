@@ -29,7 +29,8 @@ RSpec.describe Property, type: :model do
 
     describe 'of format' do
       subject { build(:random_property) }
-      it { should_not allow_value('1 b').for(:internal_number) }
+      it { should_not allow_value('1 b').for(:internal_number).with_message('Only alphanumerics and dash') }
+      it { should_not allow_value('1_b').for(:external_number).with_message('Only alphanumerics, blank space and dash') }
     end
   end
 end
