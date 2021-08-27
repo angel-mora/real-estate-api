@@ -45,5 +45,4 @@ class Property < ApplicationRecord
   def land_or_commercial_ground?
     type == 'land' || 'commercial_ground'
   end
-
 end
