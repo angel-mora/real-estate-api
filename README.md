@@ -2,14 +2,12 @@
 
 > An API to consume Real Estate data
 
-![screenshot](./app_screenshot.png)
-
-Additional description about the project and its features.
+It has multiple validations for Database Quality Assurance.
 
 ## Built With
 
 - Ruby 3, Rails 6
-- Rspec, Faker, FactoryBot, Shoulda Matchers and Capybara
+- Rspec, Faker, FactoryBot, and Shoulda Matchers
 
 ## Getting Started
 
