@@ -9,7 +9,7 @@ RSpec.describe 'Api::V1::Properties', type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-  
+
   describe 'GET /properties/:id' do
     it 'returns http success' do
       get "/api/v1/properties/#{random_property.id}"
@@ -31,8 +31,7 @@ RSpec.describe 'Api::V1::Properties', type: :request do
         rooms: 4,
         bathrooms: 3,
         comments: 'Includes forniture!'
-      }
-      }, as: :json
+      } }, as: :json
       expect(response).to have_http_status(:created)
     end
   end
