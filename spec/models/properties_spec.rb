@@ -2,20 +2,34 @@ require 'rails_helper'
 
 RSpec.describe Property, type: :model do
   # expect name to be present and validates :name, length: { minimum: 1, maximum: 128 }
-  describe 'validations' do
-    subject { build(:random_property) }
+  context 'validation' do
 
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:type) }
-    it { should validate_presence_of(:street) }
-    it { should validate_presence_of(:external_number) }
-    it { should validate_presence_of(:neighborhood) }
-    it { should validate_presence_of(:city) }
-    it { should validate_presence_of(:country) }
-    it { should validate_presence_of(:rooms) }
-    it { should validate_presence_of(:bathrooms) }
-    it { should validate_presence_of(:comments) }
+    describe 'of presence' do
+      subject { build(:random_property) }
+      it { should validate_presence_of(:name).with_message('Required field!') }
+      it { should validate_presence_of(:type).with_message('Required field!') }
+      it { should validate_presence_of(:street).with_message('Required field!') }
+      it { should validate_presence_of(:external_number).with_message('Required field!') }
+      it { should validate_presence_of(:neighborhood).with_message('Required field!') }
+      it { should validate_presence_of(:city).with_message('Required field!') }
+      it { should validate_presence_of(:country).with_message('Required field!') }
+      it { should validate_presence_of(:rooms).with_message('Required field!') }
+      it { should validate_presence_of(:bathrooms).with_message('Required field!') }
+      it { should validate_presence_of(:comments).with_message('Required field!') }
+    end
 
-    it { should validate_length_of(:name, minimum: 1, maximum: 128) }
+    describe 'of length' do
+      subject { build(:random_property) }
+      it { should validate_length_of(:name).is_at_least(1).is_at_most(128) }
+      it { should validate_length_of(:street).is_at_least(1).is_at_most(128) }
+      it { should validate_length_of(:neighborhood).is_at_least(1).is_at_most(128) }
+      it { should validate_length_of(:city).is_at_least(1).is_at_most(64) }
+      it { should validate_length_of(:external_number).is_at_least(1).is_at_most(12) }
+    end
+
+    describe 'of format' do
+      subject { build(:random_property) }
+      it { should_not allow_value('1 b').for(:internal_number) }
+    end
   end
 end
