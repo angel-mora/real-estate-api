@@ -27,6 +27,7 @@ class Api::V1::PropertiesController < ApplicationController
 
   # PATCH/PUT /properties/1
   def update
+    @property = Property.find(params[:id])
     if @property.update(property_params)
       render json: @property, status: :ok
     else
@@ -45,7 +46,7 @@ class Api::V1::PropertiesController < ApplicationController
   # Only allow a trusted parameter allowlist through.
   def property_params
     params
-      .require(:properties)
+      .require(:property)
       .permit(
         :name,
         :type_of_property,
